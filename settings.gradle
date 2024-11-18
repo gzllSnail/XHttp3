@@ -1,0 +1,44 @@
+pluginManagement {
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            credentials {
+                username '5fa89b0618c17e7748e01db9'
+                password '-B(beQV]m2Ia'
+            }
+            url 'https://packages.aliyun.com/63abf83b5d24b0d14de6363f/maven/2317867-snapshot-8x2xf4'
+        }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            credentials {
+                username '5fa89b0618c17e7748e01db9'
+                password '-B(beQV]m2Ia'
+            }
+            url 'https://packages.aliyun.com/63abf83b5d24b0d14de6363f/maven/2317867-snapshot-8x2xf4'
+        }
+    }
+}
+
+rootProject.name = "XHttp3"
+include ':appdemo'
+include ':xhttp3'

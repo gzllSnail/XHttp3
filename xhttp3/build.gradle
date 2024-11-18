@@ -1,0 +1,81 @@
+plugins {
+    alias(libs.plugins.android.library)
+    id 'maven-publish'
+}
+
+android {
+    namespace 'com.wing.http'
+    compileSdk 35
+
+    defaultConfig {
+        minSdk 21
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+}
+
+dependencies {
+    implementation libs.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    implementation libs.okhttp
+    implementation libs.retrofit
+    implementation libs.adapter.rxjava3
+    implementation libs.converter.gson
+    implementation libs.rxjava
+    implementation libs.rxandroid
+    implementation libs.disklrucache
+
+}
+
+group 'com.wing.http'
+version '1.0.0'
+def artifactId = 'xhttp3'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                afterEvaluate {
+                    from components.release
+                }
+                groupId = project.group
+                artifactId = project.name
+                version = project.version
+            }
+        }
+        repositories {
+            maven {
+                url 'https://packages.aliyun.com/63abf83b5d24b0d14de6363f/maven/2317867-snapshot-8x2xf4'
+                credentials {
+                    username = '5fa89b0618c17e7748e01db9'
+                    password = '-B(beQV]m2Ia'
+                }
+            }
+        }
+    }
+}
