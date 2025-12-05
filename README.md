@@ -34,17 +34,17 @@
 ---
 
 ## 2、如何使用
-目前支持主流开发工具AndroidStudio的使用，直接配置build.gradle，增加依赖即可.
+目前支持主流开发工具AndroidStudio的使用，配置build.gradle，增加依赖，或者直接下载引入库即可.
 
-1.先在项目根目录的 build.gradle 的 repositories 添加:
+1.先在项目根目录的 build.gradle 的 repositories 添加，或者直接下载引入库:
 ```
  //添加到全局引用库
     maven {
         credentials {
-            username '5fa89b0618c17e7748e01db9'
-            password '-B(beQV]m2Ia'
+            username '云效'
+            password '云效'
         }
-        url 'https://packages.aliyun.com/63abf83b5d24b0d14de6363f/maven/2317867-snapshot-8x2xf4'
+        url 'https://packages.aliyun.com/云效/maven/云效'
     }
         
     //添加到实际引用
